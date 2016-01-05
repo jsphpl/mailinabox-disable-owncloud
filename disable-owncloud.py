@@ -5,7 +5,7 @@ import shutil
 from subprocess import call
 from sys import exit
 
-TESTEDWITH = '0.14'
+TESTEDWITH = '0.15'
 
 NGINX_PATH = '/etc/nginx/conf.d/local.conf'
 NGINX_PATH_BACKUP = NGINX_PATH + '.bak'
