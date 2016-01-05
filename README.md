@@ -10,3 +10,5 @@ To save some time, i've written a Python script to manage this, which i can **ru
 	git clone https://github.com/jsphpl/mailinabox-disable-owncloud
 	cd mailinabox-disable-owncloud
 	python disable-owncloud.py
+
+I'm quite sure one could do this with one line of sed. If you know how, please tell me!
