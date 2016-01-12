@@ -1,15 +1,17 @@
 #!/usr/bin/python
 
+import os
 import re
 import shutil
 from subprocess import call
 from sys import exit
 
-TESTEDWITH = '0.15'
+TESTEDWITH = '0.14'
 
 NGINX_PATH = '/etc/nginx/conf.d/local.conf'
 NGINX_PATH_BACKUP = NGINX_PATH + '.bak'
 OWNCLOUD_PATH = '/home/user-data/owncloud/'
+CRONTAB_PATH = '/etc/cron.hourly/mailinabox-owncloud'
 
 start = re.compile('^\s# ownCloud configuration\.$') # dropped
 stop = re.compile('^# ssl files sha1.*$') # kept
@@ -54,3 +56,8 @@ shutil.rmtree(OWNCLOUD_PATH)
 # Reload nginx config
 print 'Reloading nginx'
 call(['service', 'nginx', 'reload'])
+
+
+# Remove Crontab
+print 'Removing cron tab under %s' % CRONTAB_PATH
+os.remove(CRONTAB_PATH)
